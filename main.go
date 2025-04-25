@@ -2,15 +2,21 @@ package main
 
 import (
 	"fmt"
-	"strings"
+	"time"
 )
-
-var conferenceName string = "Go Conference"
 
 const conferenceTickets uint = 50
 
+var conferenceName string = "Go Conference"
 var remainingTickets uint = 50
-var bookings = []string{}
+var bookings = make([]UserData, 0)
+
+type UserData struct {
+	firstName       string
+	lastName        string
+	email           string
+	numberOfTickets uint
+}
 
 func main() {
 
@@ -18,11 +24,13 @@ func main() {
 
 	for {
 		firstName, lastName, email, userTickets := getUserInput()
-		isValidName, isValidEmail, isValidTicketNumber := validateUserInput(firstName, lastName, email, userTickets)
+		isValidName, isValidEmail, isValidTicketNumber := ValidateUserInput(firstName, lastName, email, userTickets, remainingTickets)
 
 		if isValidName && isValidEmail && isValidTicketNumber {
 
-			bookTickets(firstName, lastName, email, userTickets)
+			bookTicket(firstName, lastName, email, userTickets)
+			go sendTicket(userTickets, firstName, lastName, email)
+
 			firstNames := getFirstNames()
 
 			fmt.Printf("The first names of bookings are: %v\n", firstNames)
@@ -54,17 +62,9 @@ func greetUsers() {
 func getFirstNames() []string {
 	firstNames := []string{}
 	for _, booking := range bookings {
-		var names = strings.Fields(booking)
-		firstNames = append(firstNames, names[0])
+		firstNames = append(firstNames, booking.firstName)
 	}
 	return firstNames
-}
-
-func validateUserInput(firstName string, lastName string, email string, userTickets uint) (bool, bool, bool) {
-	isValidName := len(firstName) >= 2 && len(lastName) >= 2
-	isValidEmail := strings.Contains(email, "@")
-	isValidTicketNumber := userTickets > 0 && userTickets <= remainingTickets
-	return isValidName, isValidEmail, isValidTicketNumber
 }
 
 func getUserInput() (string, string, string, uint) {
@@ -88,10 +88,26 @@ func getUserInput() (string, string, string, uint) {
 	return firstName, lastName, email, userTickets
 }
 
-func bookTickets(firstName string, lastName string, email string, userTickets uint) {
+func bookTicket(firstName string, lastName string, email string, userTickets uint) {
 	remainingTickets = remainingTickets - userTickets
-	bookings = append(bookings, firstName+" "+lastName)
+	var userData = UserData{
+		firstName:       firstName,
+		lastName:        lastName,
+		email:           email,
+		numberOfTickets: userTickets,
+	}
+
+	bookings = append(bookings, userData)
+	fmt.Printf("List of bookings is %v\n", bookings)
 
 	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
 	fmt.Printf("%v tickets remaining for %v\n", remainingTickets, conferenceName)
+}
+
+func sendTicket(userTickets uint, firstName string, lastName string, email string) {
+	time.Sleep(10 * time.Second)
+	var ticket = fmt.Sprintf("%v tickets for %v %v", userTickets, firstName, lastName)
+	fmt.Println("###############")
+	fmt.Printf("Sending ticket:\n %v \nto email address %v\n", ticket, email)
+	fmt.Println("###############")
 }
