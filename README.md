@@ -73,13 +73,6 @@ Thank you John! You have successfully booked 2 tickets.
 - Goroutines and concurrency
 - Clean code practices
 
-## Future Improvements 🚀
-
-- Add persistent storage (e.g., write bookings to a file or database)
-- Add a web interface using Go’s net/http package
-- Include booking cancellation functionality
-- Add unit tests for core logic
-
 ## Contributors 👥
 
 - **Romy Tzafrir** - [GitHub Profile](https://github.com/romytz)
