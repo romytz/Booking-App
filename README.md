@@ -1,11 +1,11 @@
-# Booking App in Go 🚌
+# Booking App in Go 
 
 A simple, interactive command-line booking application built in Go.  
 Developed as part of a self-study project.
 
 ---
 
-## Project Overview 📊
+## Project Overview 
 
 This project demonstrates fundamental concepts of the Go programming language in a practical context. The goal was to simulate a booking system where users can reserve tickets for an event and see real-time booking updates — while applying Go’s concurrency features.
 
@@ -17,7 +17,7 @@ This project demonstrates fundamental concepts of the Go programming language in
 
 ---
 
-## Project Structure 📁
+## Project Structure 
 ```bash
 booking-app/
 ├── main.go        # Core application logic
@@ -26,7 +26,7 @@ booking-app/
 
 ---
 
-## Installation & Setup 🛠️
+## Installation & Setup
 
 ### Prerequisites
 - Go installed on your system  
@@ -43,7 +43,7 @@ booking-app/
    go run main.go
    ```
 
-## Example Output 🖥️
+## Example Output
 ```bash
 Welcome to the Booking App!
 We have 50 tickets available.
@@ -56,18 +56,18 @@ How many tickets would you like to book? 2
 Thank you John! You have successfully booked 2 tickets.
 ```
 
-## Features ⚙️
+## Features
 
-- 📥 **Input Handling**: Interactive prompts to gather user information  
-- ✅ **Validation**: Ensures email format and ticket limits are respected  
-- 🔄 **Concurrency**: Uses Goroutines to simulate asynchronous confirmation emails  
-- 🔢 **Slices**: Stores booking data efficiently  
-- 🧠 **Logic**: Loops, conditionals, and string manipulation in action
+- **Input Handling**: Interactive prompts to gather user information  
+- **Validation**: Ensures email format and ticket limits are respected  
+- **Concurrency**: Uses Goroutines to simulate asynchronous confirmation emails  
+- **Slices**: Stores booking data efficiently  
+- **Logic**: Loops, conditionals, and string manipulation in action
 
-## Contributors 👥
+## Contributors 
 
 - **Romy Tzafrir** - [GitHub Profile](https://github.com/romytz)
 
-## License 📜
+## License 
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
