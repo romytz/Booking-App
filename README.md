@@ -17,13 +17,12 @@ This project demonstrates fundamental concepts of the Go programming language in
 
 ---
 
-## Features ⚙️
-
-- 📥 **Input Handling**: Interactive prompts to gather user information  
-- ✅ **Validation**: Ensures email format and ticket limits are respected  
-- 🔄 **Concurrency**: Uses Goroutines to simulate asynchronous confirmation emails  
-- 🔢 **Slices**: Stores booking data efficiently  
-- 🧠 **Logic**: Loops, conditionals, and string manipulation in action
+## Project Structure 📁
+```bash
+booking-app/
+├── main.go        # Core application logic
+└── helper.go      # Helper functions (e.g., input validation)
+```
 
 ---
 
@@ -44,13 +43,6 @@ This project demonstrates fundamental concepts of the Go programming language in
    go run main.go
    ```
 
-## Project Structure 📁
-```bash
-booking-app/
-├── main.go        # Core application logic
-└── helper.go      # Helper functions (e.g., input validation)
-```
-
 ## Example Output 🖥️
 ```bash
 Welcome to the Booking App!
@@ -64,14 +56,13 @@ How many tickets would you like to book? 2
 Thank you John! You have successfully booked 2 tickets.
 ```
 
-## Learning Outcomes 🎓
+## Features ⚙️
 
-- Through this project, I gained practical experience with:
-- Go syntax and basic types
-- Error handling and input validation
-- Slices, maps, and functions
-- Goroutines and concurrency
-- Clean code practices
+- 📥 **Input Handling**: Interactive prompts to gather user information  
+- ✅ **Validation**: Ensures email format and ticket limits are respected  
+- 🔄 **Concurrency**: Uses Goroutines to simulate asynchronous confirmation emails  
+- 🔢 **Slices**: Stores booking data efficiently  
+- 🧠 **Logic**: Loops, conditionals, and string manipulation in action
 
 ## Contributors 👥
 
